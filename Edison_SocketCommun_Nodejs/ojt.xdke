@@ -1,0 +1,348 @@
+{
+  "project": {
+    "projectSettingsVersion": "2.0.0",
+    "initialAutoPluginCount": 0,
+    "currentBuildConfiguration": "Android",
+    "projectFiles": {},
+    "projectDirectories": {}
+  },
+  "iot-tab": {
+    "fileStatus": {
+      "app.js": {
+        "previousModTime": 1454472779630,
+        "modified": 1454472779630,
+        "seen": true,
+        "name": "app.js"
+      },
+      "install.sh": {
+        "previousModTime": 1453090853714,
+        "modified": 1453090853714,
+        "seen": true,
+        "name": "install.sh"
+      },
+      "npm-debug.log": {
+        "previousModTime": 1453090877946,
+        "modified": 1453090877946,
+        "seen": true,
+        "name": "npm-debug.log"
+      },
+      "ojt.xdk": {
+        "previousModTime": 1453798945408,
+        "modified": 1453798945408,
+        "seen": true,
+        "name": "ojt.xdk"
+      },
+      "ojt.xdke": {
+        "previousModTime": 1454472786557,
+        "modified": 1454472786557,
+        "seen": true,
+        "name": "ojt.xdke"
+      },
+      "package.json": {
+        "previousModTime": 1454417751311,
+        "modified": 1454417751311,
+        "seen": true,
+        "name": "package.json"
+      },
+      "README.md": {
+        "previousModTime": 1453090853714,
+        "modified": 1453090853714,
+        "seen": true,
+        "name": "README.md"
+      },
+      "controller/public/index2.html": {
+        "previousModTime": 1452996805601,
+        "modified": 1452996805601,
+        "seen": true,
+        "name": "controller/public/index2.html"
+      },
+      "controller/public/index3.html": {
+        "previousModTime": 1452996805675,
+        "modified": 1452996805675,
+        "seen": true,
+        "name": "controller/public/index3.html"
+      },
+      "controller/public/style2.css": {
+        "previousModTime": 1452996805675,
+        "modified": 1452996805675,
+        "seen": true,
+        "name": "controller/public/style2.css"
+      },
+      "public/controller.html": {
+        "previousModTime": 1454473926440,
+        "modified": 1454473926440,
+        "seen": true,
+        "name": "public/controller.html"
+      },
+      "public/index.html": {
+        "previousModTime": 1453090877946,
+        "modified": 1453090877946,
+        "seen": true,
+        "name": "public/index.html"
+      },
+      "public/index3.html": {
+        "previousModTime": 1453090878056,
+        "modified": 1453090878056,
+        "seen": true,
+        "name": "public/index3.html"
+      },
+      "public/index_0.html": {
+        "previousModTime": 1453090878056,
+        "modified": 1453090878056,
+        "seen": true,
+        "name": "public/index_0.html"
+      },
+      "public/index_2.html": {
+        "previousModTime": 1453090878056,
+        "modified": 1453090878056,
+        "seen": true,
+        "name": "public/index_2.html"
+      },
+      "public/style.css": {
+        "previousModTime": 1453090878056,
+        "modified": 1453090878056,
+        "seen": true,
+        "name": "public/style.css"
+      },
+      "public/style2.css": {
+        "previousModTime": 1453090878056,
+        "modified": 1453090878056,
+        "seen": true,
+        "name": "public/style2.css"
+      },
+      "public/style3.css": {
+        "previousModTime": 1454470913509,
+        "modified": 1454470913509,
+        "seen": true,
+        "name": "public/style3.css"
+      },
+      "public/img/area.png": {
+        "previousModTime": 1453794517756,
+        "modified": 1453794517756,
+        "seen": true,
+        "name": "public/img/area.png"
+      },
+      "public/img/circle.png": {
+        "previousModTime": 1453794517835,
+        "modified": 1453794517835,
+        "seen": true,
+        "name": "public/img/circle.png"
+      },
+      "xdk/project-info.json": {
+        "previousModTime": 1453798945348,
+        "modified": 1453798945348,
+        "seen": true,
+        "name": "xdk/project-info.json"
+      },
+      "edi-cam-master/.gitignore": {
+        "previousModTime": 1431510300000,
+        "modified": 1431510300000,
+        "seen": true,
+        "name": "edi-cam-master/.gitignore"
+      },
+      "edi-cam-master/LICENSE.md": {
+        "previousModTime": 1431510300000,
+        "modified": 1431510300000,
+        "seen": true,
+        "name": "edi-cam-master/LICENSE.md"
+      },
+      "edi-cam-master/README.md": {
+        "previousModTime": 1431510300000,
+        "modified": 1431510300000,
+        "seen": true,
+        "name": "edi-cam-master/README.md"
+      },
+      "edi-cam-master/bin/do_ffmpeg.sh": {
+        "previousModTime": 1431510300000,
+        "modified": 1431510300000,
+        "seen": true,
+        "name": "edi-cam-master/bin/do_ffmpeg.sh"
+      },
+      "edi-cam-master/bin/install_ffmpeg.sh": {
+        "previousModTime": 1431510300000,
+        "modified": 1431510300000,
+        "seen": true,
+        "name": "edi-cam-master/bin/install_ffmpeg.sh"
+      },
+      "edi-cam-master/etc/opkg/base-feeds.conf": {
+        "previousModTime": 1431510300000,
+        "modified": 1431510300000,
+        "seen": true,
+        "name": "edi-cam-master/etc/opkg/base-feeds.conf"
+      },
+      "edi-cam-master/web/client/index.html": {
+        "previousModTime": 1431510300000,
+        "modified": 1431510300000,
+        "seen": true,
+        "name": "edi-cam-master/web/client/index.html"
+      },
+      "edi-cam-master/web/client/jsmpg.js": {
+        "previousModTime": 1431510300000,
+        "modified": 1431510300000,
+        "seen": true,
+        "name": "edi-cam-master/web/client/jsmpg.js"
+      },
+      "edi-cam-master/web/server/package.json": {
+        "previousModTime": 1431510300000,
+        "modified": 1431510300000,
+        "seen": true,
+        "name": "edi-cam-master/web/server/package.json"
+      },
+      "edi-cam-master/web/server/server.js": {
+        "previousModTime": 1431510300000,
+        "modified": 1431510300000,
+        "seen": true,
+        "name": "edi-cam-master/web/server/server.js"
+      },
+      "edi-cam-master/web/server/lib/config/server.js": {
+        "previousModTime": 1431510300000,
+        "modified": 1431510300000,
+        "seen": true,
+        "name": "edi-cam-master/web/server/lib/config/server.js"
+      },
+      "edi-cam-master/web/server/lib/routes/index.js": {
+        "previousModTime": 1431510300000,
+        "modified": 1431510300000,
+        "seen": true,
+        "name": "edi-cam-master/web/server/lib/routes/index.js"
+      },
+      "OpenCVjs/.gitignore": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "OpenCVjs/.gitignore"
+      },
+      "OpenCVjs/License": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "OpenCVjs/License"
+      },
+      "OpenCVjs/opencv.js": {
+        "previousModTime": 1454399043407,
+        "modified": 1454399043407,
+        "seen": true,
+        "name": "OpenCVjs/opencv.js"
+      },
+      "OpenCVjs/README": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "OpenCVjs/README"
+      },
+      "OpenCVjs/module/00_develop.js": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "OpenCVjs/module/00_develop.js"
+      },
+      "OpenCVjs/module/core.js": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "OpenCVjs/module/core.js"
+      },
+      "OpenCVjs/module/highgui.js": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "OpenCVjs/module/highgui.js"
+      },
+      "OpenCVjs/module/imgcodecs.js": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "OpenCVjs/module/imgcodecs.js"
+      },
+      "OpenCVjs/module/imgproc.js": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "OpenCVjs/module/imgproc.js"
+      },
+      "OpenCVjs/module/ml.js": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "OpenCVjs/module/ml.js"
+      },
+      "OpenCVjs/module/test.js": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "OpenCVjs/module/test.js"
+      },
+      "public/javascript/OpenCVjs/.gitignore": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "public/javascript/OpenCVjs/.gitignore"
+      },
+      "public/javascript/OpenCVjs/License": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "public/javascript/OpenCVjs/License"
+      },
+      "public/javascript/OpenCVjs/opencv.js": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "public/javascript/OpenCVjs/opencv.js"
+      },
+      "public/javascript/OpenCVjs/README": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "public/javascript/OpenCVjs/README"
+      },
+      "public/javascript/OpenCVjs/module/00_develop.js": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "public/javascript/OpenCVjs/module/00_develop.js"
+      },
+      "public/javascript/OpenCVjs/module/core.js": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "public/javascript/OpenCVjs/module/core.js"
+      },
+      "public/javascript/OpenCVjs/module/highgui.js": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "public/javascript/OpenCVjs/module/highgui.js"
+      },
+      "public/javascript/OpenCVjs/module/imgcodecs.js": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "public/javascript/OpenCVjs/module/imgcodecs.js"
+      },
+      "public/javascript/OpenCVjs/module/imgproc.js": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "public/javascript/OpenCVjs/module/imgproc.js"
+      },
+      "public/javascript/OpenCVjs/module/ml.js": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "public/javascript/OpenCVjs/module/ml.js"
+      },
+      "public/javascript/OpenCVjs/module/test.js": {
+        "previousModTime": 1446314188000,
+        "modified": 1446314188000,
+        "seen": true,
+        "name": "public/javascript/OpenCVjs/module/test.js"
+      }
+    },
+    "boardFileStatus": {
+      "public/controller.html": {
+        "previousModTime": 1454473936724
+      }
+    }
+  }
+}
