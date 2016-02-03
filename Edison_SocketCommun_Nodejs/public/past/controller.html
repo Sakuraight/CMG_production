@@ -15,8 +15,11 @@
         -->
 		<p>コントローラ案</p>
         <canvas id="video-canvas" width="320px" height="240px">
-		<IMG src="img/circle1.png" class="hani" name="img2" width="410" height="410" style="position:absolute">
-		<IMG src="img/cont_img3.png" class="cont" id="cont" name="img1" width="90" height="90" style="position:absolute" ontouchstart="dragOn('img1')">
+		<img src="img/circle.png" class="circle" id="circle" width="80" height="80" name="img1" style="position:absolute" onMousedown="dragOn('img1')" alt="コントローラー">
+		<button type="button" class="start" class="btn" value="START" onClick="start()">START</button>-->
+		コントローラ案<BR>
+		<IMG src="img_0/hani2.png" class="hani" name="img2" width="410" height="410" style="position:absolute">
+		<IMG src="img_0/cont_img2.png" class="cont" id="cont" name="img1" width="90" height="90" style="position:absolute" onMousedown="dragOn('img1')">
 		<div id="disp"></div>
         <script src="">
         <script src="jsmpg.js"></script>
@@ -72,7 +75,7 @@
             });
             
 			var img = new Image();
-			img.src = "img/circle1.png";
+			img.src = "img/hani2.png";
 			img.onload = function (){
 				//document.images['img1'].style.top = Math.round(img.height / 2) - y;
 				//document.images['img1'].style.left = Math.round(img.width / 2) - x;
@@ -87,11 +90,11 @@
 			//console.log(img.height);
 			//var socket = io.connect(location.origin);
 			function dragOn(n) {
-			  flag = true;
+			  flag = true; 
 			  imgName = n;
 			}
 			function dragOff() {
-			  flag = false;
+			  flag = false; 
 			  //document.images[imgName].style.top = Math.round(img.height / 2) - y;
 			  //document.images[imgName].style.left = Math.round(img.width / 2) - x;
               socket.emit('moter', 's');
@@ -118,16 +121,11 @@
 				document.images[imgName].style.top = y + r2 - r1;
 				document.images[imgName].style.left = x + r2 - r1;
 				//console.log("x="+ (event.x-x));
-				//console.log("y="+ (event.y-y));
+				//console.log("y="+ (event.y-y)); 	
 			  }
               else{
-                    if (!(y+r2 < h+r2)) console.log('1');
-                    if(!(y+r2 > h - r2)) console.log(y+r2);
-                    if(!(x + r2 >= w-r2)) console.log('3');
-                    if(!(x + r2 <= w + r2)) console.log('4');
-                    if(!(x2 + y2 <= r2*r2)) console.log(x2 + y2);
-                    document.images[imgName].style.top = r2 + Math.sin(theta0) * r2 - r1;
-                    document.images[imgName].style.left = r2 + Math.cos(theta0) * r2 - r1;
+			  	document.images[imgName].style.top = Math.sin(sita)*160 - y + h;
+				document.images[imgName].style.left = Math.cos(sita)*160 - x + w;
                }
 			  //デューティー比
                 socket.emit("dutyrate", Math.round(Math.min(d / r2 * 255, 255)) + '');        
@@ -183,7 +181,8 @@
 			    }
 			}
 			xmlHttp.onreadystatechange = checkStatus;
-			xmlHttp.open("GET", "../../serial_number.txt", true); //2番目の引数が、シリアルナンバーが書いてあるファイル()
+			xmlHttp.open("GET", "sn", true);
+			//xmlHttp.open("GET", "/factory/serial_number", true); //2番目の引数が、シリアルナンバーが書いてあるファイル()
 			xmlHttp.send(null);
 			function checkStatus(){
 				if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
