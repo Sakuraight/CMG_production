@@ -18,10 +18,21 @@
 			<IMG src="img/circle1.png" class="hani" name="img2" width="273" height="273" style="position:absolute">
 			<IMG src="img/cont_img3.png" class="cont" id="cont" name="img1" width="60" height="60" style="position:absolute" onMousedown="dragOn('img1')">
 		</div>
+		
+        <script src="jsmpg.js"></script>
+        <script>
+            var wsUrl ='ws://192.168.11.44:8084/';
+            
+            var canvas = document.getElementById('video-canvas');
+            var ctx = canvas.getContext('2d');
+            ctx.fillStyle = "#333";
+            ctx.fillText('Loading...', canvas.width/2-30, canvas.height/3);
+            
+            var client = new WebSocket(wsUrl);
+            var player = new jsmpeg(client, {canvas:canvas});
+        </script>
 		<SCRIPT language="JavaScript">
 			<!--
-			x = 30; // マウスと画像の縦方向の距離
-			y = 30; // マウスと画像の横方向の距離
 			w = Math.round(window.innerWidth/2); //ウィンドウ幅/2
 			h = Math.round(window.innerHeight/2); //ウィンドウ高さ/2
 			h2 = Math.round(h/2); //コントローラー部分の中心、ということで……
@@ -29,8 +40,38 @@
 			r2 = 137; //hani半径==img.width(height)/2
 			r3 = r2 - r1;
 			flag = false;
+            var isTouch = ('ontouchstart' in window);
+			var socket = io.connect(location.host);
 			window.document.onmousemove = dragImg;
 			window.document.onmouseup = dragOff;
+            window.document.addEventListener('touchmove', function(event){
+                event.preventDefault();
+                dragImg()
+            },false);
+			window.document.addEventListener('touchend', function (event){
+                event.preventDefault();
+                dragOff();
+            },false);
+            $('.cont').bind({
+                'touchstart mousedown': function (e){
+                    e.preventDefault();
+                    dragOn('img1');
+                    this.touched = true;
+                },
+                'touchmove mousemove': function (e){
+                    if (!this.touched)  return;
+                    e.preventDefault();
+                    dragImg();
+                    
+                },
+                'touchend mouseup': function (e){
+                    if (!this.touched) return;
+                    e.preventDefault();
+                    dragOff();
+                    this.touched =false;
+                }
+            });
+            
 			var img = new Image();
 			img.src = "img/circle1.png";
 			img.onload = function (){
@@ -56,12 +97,21 @@
 			  //document.images[imgName].style.top = Math.round(img.height / 2) - y;
 			  //document.images[imgName].style.left = Math.round(img.width / 2) - x;
 			  document.images[imgName].style.top = h + h2 - r1;
+              socket.emit('moter', 's');
+              socket.emit('angle', 90 + 300 + '');
 			  document.images[imgName].style.left = w - r1;
 			  //console.log(document.images[imgName].style.top);
 			  //console.log(document.images[imgName].style.left);
 			}
 			function dragImg() {
 			  if(!flag) return;
+                    x = (isTouch ? event.changedTouches[0].pageX - r2:event.x-r2);
+                    y = (isTouch ? event.changedTouches[0].pageY - r2:event.y-r2);
+                    theta0 = Math.atan2(y,x); //radian
+                    theta = theta0 / Math.PI * 180; //degree
+                    x2 = x * x;
+                    y2 = y * y;
+                    d = Math.sqrt(x2+y2);
 			  var sita = Math.atan2(event.y - h - h2, event.x - w);
 			  var r = Math.pow(event.x - w,2)+ Math.pow(event.y - h - h2,2); //中心から座標の距離^2
 			  if (sita > 0) mFlag = -1;
@@ -82,12 +132,69 @@
 			  	document.images[imgName].style.top = Math.sin(sita)*r3 - y + h + h2;
 				document.images[imgName].style.left = Math.cos(sita)*r3 - x + w;
 			  }
-			  socket.emit("data", {sita: sita, r : r, mFlag: mFlag});
-			  return false;
+			  //デューティー比
+                socket.emit("dutyrate", Math.round(Math.min(d / r2 * 255, 255)) + '');        
+				//前進・後退
+				if(theta == 0 || theta == -180){
+					//console.log("error");
+                    socket.emit('moter', "s");
+				} else if(theta < 0) {
+                    //console.log("forward");
+					socket.emit('moter',"f");
+				} else {
+                    //console.log("back");
+					socket.emit('moter',"b");
+				}
+
+				//傾き
+				if(theta < 90 && theta >= -90) {
+                    //console.log(theta);
+					//console.log("right"); //右回り
+					if(theta >= 45 || theta <= -45) {
+						//console.log(180 - Math.abs(theta));
+                        socket.emit('angle', Math.round(180 - Math.abs(theta)) + 300 + '');
+					} else {
+						//console.log(135);
+                        socket.emit('angle', 135 + 300 + '');
+					}
+				} else {
+					//console.log("left"); //左回り
+					if((theta > 0 && theta <= 135) || (theta < 0 && theta >= -135)) {
+						//console.log(180 - Math.abs(theta));
+                        socket.emit('angle', Math.round(180 - Math.abs(theta)) + 300 + '');
+					} else {
+						//console.log(45);
+                        socket.emit('angle', 45 + 300 + '');
+					}
+				}
+			
+				return false;
 			}
 			//-->
 		</SCRIPT>
 
+		<!-- シリアルナンバー表示 -->
+		<script>
+			var xmlHttp;
+			if (window.XMLHttpRequest){
+			    xmlHttp = new XMLHttpRequest();
+			} else {
+			    if (window.ActiveXObject){
+			    	xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			    } else {
+			    	xmlHttp = null;
+			    }
+			}
+			xmlHttp.onreadystatechange = checkStatus;
+			xmlHttp.open("GET", "../../serial_number.txt", true); //2番目の引数が、シリアルナンバーが書いてあるファイル()
+			xmlHttp.send(null);
+			function checkStatus(){
+				if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
+			    	var node = document.getElementById("disp");
+			    	node.innerHTML = xmlHttp.responseText;
+			  	}
+			}
+		</script>
 		<!-- タッチ端末 -->
 		<script>
 			x = 30; // マウスと画像の縦方向の距離
